@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  
+  body {
+    background-color: #080B0D;
+    color: #F3F4F6;
+  }
+
+  h1, h2, h3, .font-serif-title {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0C0F12;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #232C33;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #84CC16;
+}
+
+/* Custom Glassmorphism */
+.glass-card {
+  background: rgba(18, 23, 27, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-hover:hover {
+  background: rgba(26, 33, 39, 0.85);
+  border-color: rgba(132, 204, 22, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(132, 204, 22, 0.15);
+  transform: translateY(-4px);
+}
+
+.glass-nav {
+  background: rgba(8, 11, 13, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Glow Utilities */
+.text-glow {
+  text-shadow: 0 0 20px rgba(132, 204, 22, 0.4);
+}
+
+.box-glow {
+  box-shadow: 0 0 25px rgba(132, 204, 22, 0.2);
+}
+
+/* Leaf Particle Animation */
+@keyframes leafFloat {
+  0% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-25px) rotate(15deg) scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+    opacity: 0.7;
+  }
+}
+
+.animate-leaf-1 {
+  animation: leafFloat 7s ease-in-out infinite;
+}
+
+.animate-leaf-2 {
+  animation: leafFloat 10s ease-in-out infinite 2s;
+}
+
+.animate-leaf-3 {
+  animation: leafFloat 8s ease-in-out infinite 4s;
+}
+
+/* Hide scrollbar but keep scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-fade-in-delay {
+  animation: fadeIn 0.8s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+/* Section reveal on scroll (used with JS IntersectionObserver) */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
