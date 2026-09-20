@@ -126,18 +126,20 @@ export const MenuSection = ({ cartItems, onAddToCart, onRemoveFromCart }) => {
         </div>
 
         {/* Categories Horizontal Tabs */}
-        <div className="mb-10 relative">
-          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 px-1">
+        <div className="mb-12 relative">
+          {/* Subtle bottom line for tabs area */}
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-white/5" />
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-3 px-1 relative z-10">
             {MENU_CATEGORIES.map((cat) => {
               const isActive = activeCategory === cat;
               return (
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`whitespace-nowrap px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition-all duration-300 shrink-0 border ${
+                  className={`whitespace-nowrap px-6 py-3 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-300 shrink-0 border ${
                     isActive
-                      ? 'bg-gradient-to-r from-leaf-500 to-leaf-600 text-dark-950 border-leaf-400 shadow-lg shadow-leaf-500/25 scale-105'
-                      : 'bg-dark-850 hover:bg-dark-800 text-gray-300 border-white/10 hover:border-white/20'
+                      ? 'bg-leaf-500 text-dark-950 border-leaf-500 shadow-[0_0_20px_rgba(132,204,22,0.3)]'
+                      : 'bg-transparent hover:bg-white/5 text-gray-400 hover:text-white border-transparent hover:border-white/10'
                   }`}
                 >
                   {cat}

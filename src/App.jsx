@@ -75,7 +75,9 @@ export function App() {
 
       {/* ── Chef's Picks ──────────────────────────────────────────────────── */}
       <FeaturedDishes
+        cartItems={cartItems}
         onAddToCart={handleAddToCart}
+        onRemoveFromCart={handleRemoveFromCart}
         onOrderNow={() => setIsOrderModalOpen(true)}
       />
 
